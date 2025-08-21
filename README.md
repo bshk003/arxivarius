@@ -91,7 +91,7 @@ There are two primary ways to install the extension.
 
     3.  Drag and drop the *.crx* file into the `chrome://extensions/` page. A prompt will appear to confirm the installation.
 
-After installation, you can access the settings page by clicking the puzzle piece icon in the Chromium toolbar and selecting "*More options*" against the arxivarius entry. Alternatively, go to `chrome://extensions/` -> `arxivarius` -> `Extension options`.
+After installation,the settings page can be accessed by clicking the puzzle piece icon in the Chromium toolbar and selecting "*More options*" against the arxivarius entry. Alternatively, go to `chrome://extensions/` -> `arxivarius` -> `Details` -> `Extension options`.
 
 ### Further development
 
