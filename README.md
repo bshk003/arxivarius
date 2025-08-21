@@ -2,7 +2,7 @@
 
 arxivarius is Chromium extension that allows the user to download arXiv papers with custom, descriptive filenames.
 
-The extension automatically renames pdf-files downloaded from *arxiv.org* according to a template based on the paper's metadata (e.g., author, title, date, subject). This may help to keep a low-key file-based research library more organized.
+The extension automatically renames pdf-files downloaded from *arxiv.org* according to a template parametrized by the paper's metadata (e.g., author, title, date, subject). This may help to keep a low-key file-based research library more organized.
 
 ### The filename template format
 
@@ -21,7 +21,7 @@ The filename template is a string that may contain various tags representing pap
 
 The default template is `%A-%t (%Y).pdf`.
 
-A forward slash (`/`) can be used in the template to specify a path relative to the downloads directory. 
+A forward slash (`/`) can be used in the template to specify a path relative to the downloads directory. The forbidden filename characters (`\:*?"<>|`) are replaced by the underscore.  
 
 A few (non-arxiv) examples:
 
@@ -30,7 +30,7 @@ A few (non-arxiv) examples:
     - Template: `%a-%Y-%t.pdf`
     - Filename: `Euler, Leonard-1744-Methodus inveniendi lineas curvas.pdf`
 
-2.  "Disquisitiones Arithmeticae" by Carl Friedrich Gauss, published in 1801, subject: math.NT
+2.  "Disquisitiones Arithmeticae" by Carl Friedrich Gauss
 
     - Template: `[%s] %A-%t (%Y).pdf`
     - Filename: `[math.NT] Gauss, C.F.-Disquisitiones Arithmeticae (1801).pdf`
@@ -54,15 +54,13 @@ downloads/
 ### Installation
 
 There are two primary ways to install the extension.
-1. From the repository
+- From the repository
 
-    1. Clone or download the repository:
-
-       Clone the repository using Git:
+    1. Clone the repository using Git:
 
         `git clone https://github.com/bshk003/arxivarius`
 
-        Or, download the zip file by clicking the "Code" button on the GitHub page and selecting "Download ZIP."
+        Or download the zip file by clicking the "Code" button on the GitHub page and selecting "Download ZIP."
 
     2.  Open Chrome Extensions:
 
@@ -76,14 +74,14 @@ There are two primary ways to install the extension.
 
         Click the "Load unpacked" button that appears.
 
-        Navigate to the directory where the repository was cloned or unzipped and select the main project folder.
+        Navigate to the directory where the repository was cloned or unzipped and select the main project folder, that being `arxivarius/chromium/src`.
         
 
-2. From a *.crx* file
+- From a *.crx* file
 
     A packed *.crx* file is available in the `release/` directory in the repo.
 
-    1. Upon downloading, navigate to `chrome://extensions/`.
+    1. Upon downloading, open `chrome://extensions/`.
 
     2. Enable Developer Mode:
 
@@ -91,7 +89,7 @@ There are two primary ways to install the extension.
 
     3.  Drag and drop the *.crx* file into the `chrome://extensions/` page. A prompt will appear to confirm the installation.
 
-After installation,the settings page can be accessed by clicking the puzzle piece icon in the Chromium toolbar and selecting "*More options*" against the arxivarius entry. Alternatively, go to `chrome://extensions/` -> `arxivarius` -> `Details` -> `Extension options`.
+After installation, the settings page can be accessed by clicking the puzzle piece icon in the Chromium toolbar and selecting "*More options*" against the arxivarius entry. Alternatively, go to `chrome://extensions/` -> `arxivarius` -> `Details` -> `Extension options`.
 
 ### Further development
 
