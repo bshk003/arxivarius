@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>arxivarius options</title>
+  <style>
+    body { 
+        font-family: sans-serif; 
+        font-size: 1em; 
+        padding: 20px; 
+        width: 600px; }
+    h1 { font-size: 1.5em; }
+    
+    label, input, button { 
+        display: block; 
+        margin-bottom: 10px; }
+    input[type="text"] { width: 100%; box-sizing: border-box; }
+    .status { font-weight: bold; color: green; }
+
+    table {
+      width: 100%;
+      border-collapse: collapse; 
+      margin-top: 15px;
+      margin-left: 0;
+      margin-right: 0;
+    }
+    td {padding: 2px; line-height: 1.4;}
+
+    #preview-container {
+      margin-top: 20px;
+      padding: 10px;
+      background-color: #b9eea4;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      overflow-wrap: break-word;
+    }
+
+    #preview-filename {
+      font-style: italic;
+    }
+
+    #github-link {
+        font-size: 0.9em;
+    }
+  </style>
+</head>
+<body>
+  <h1>arxivarius options</h1>
+  <label for="template">Customize the filename template for the arXiv downloads:</label>
+  <input type="text" id="template" name="template" value="%A-%t (%Y).pdf">
+  <button id="save-button">Save</button>
+  
+  <div class="status" id="status-message"></div>
+
+  <div id="preview-container">
+  <p><b>Preview:</b> <span id="preview-filename"></span></p>
+  </div>
+
+  <table>
+    <tr>
+      <td colspan="2"><b>Available Tags:</b></td>
+    </tr>
+    <tr>
+      <td>%a</td>
+      <td>full author(s)' name(s) in the order of appearance</td>
+    </tr>
+    <tr>
+      <td>%A</td>
+      <td>author(s)' name(s) in the initials format</td>
+    </tr>
+    <tr>
+      <td>%f</td>
+      <td>the full first author's name</td>
+    </tr>
+    <tr>
+      <td>%F</td>
+      <td>the first author's name in the initials format</td>
+    </tr>
+    <tr>
+      <td>%i</td>
+      <td>arXiv publication ID</td>
+    </tr>
+    <tr>
+      <td>%s</td>
+      <td>the primary subject</td>
+    </tr>
+    <tr>
+      <td>%t</td>
+      <td>the title</td>
+    </tr>
+    <tr>
+      <td>%Y, %M, %D</td>
+      <td>the publication date (year, month, day)</td>
+    </tr>
+    <tr>
+      <td>%%</td>
+      <td>the percent sign</td>
+    </tr>
+    <tr>
+      <td colspan="2"><br>The forward slashes (/), when present, specify a path relative to the downloads directory.</td>
+    </tr>
+  </table>
+  
+  <hr>
+  <div id="github-link"><a href="https://github.com/bshk003/arxivarius" target="_blank">View on GitHub</a></div>
+
+  <script src="options.js" type="module"></script>
+</body>
+</html>

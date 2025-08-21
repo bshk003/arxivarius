@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "arxivarius",
+  "version": "0.2",
+  "description": "Download arXiv papers with custom filenames.",
+  "permissions": [
+    "downloads",
+    "storage"
+  ],
+  "host_permissions": [
+    "https://*.arxiv.org/*"
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "options_page": "options.html",
+  "icons": {
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png"
+  }
+}
