@@ -6,7 +6,7 @@ The extension automatically renames pdf-files downloaded from *arxiv.org* accord
 
 ### The filename template format
 
-The filename template is a string that can contain a variety of tags. The tags are replaced with the corresponding metadata from the paper.
+The filename template is a string that may contain various tags representing paper's metadata.
 
 | **Tag** | **Description** |
 | :--- | :--- |
