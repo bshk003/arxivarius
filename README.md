@@ -19,7 +19,7 @@ The filename template is a string that may contain various tags representing pap
 | `%t` | The title |
 | `%Y`, `%M`, `%D` | The publication date (year, month, day) |
 
-The default template is `%A-%t-[%i].pdf`.
+The default template is `%A-%t (%Y).pdf`.
 
 A forward slash (`/`) can be used in the template to specify a path relative to the downloads directory. 
 
