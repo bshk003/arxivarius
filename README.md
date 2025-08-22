@@ -1,8 +1,10 @@
 ### About
 
-arxivarius is Chromium extension that allows the user to download arXiv papers with custom, descriptive filenames.
+arxivarius is a browser extension that allows the user to download arXiv papers with custom, descriptive filenames.
 
-The extension automatically renames pdf-files downloaded from *arxiv.org* according to a template parametrized by the paper's metadata (e.g., author, title, date, subject). This may help to keep a low-key file-based research library more organized.
+The extension automatically renames PDF files downloaded from arxiv.org according to a template that may depend on the paper's metadata (e.g., author, title, date, subject). This can help to keep a low-key file-based research library more organized.
+
+There is a version for Chromium-based browsers and one for Firefox. The Firefox version uses the WebExtension API and should work with other browsers that support it. 
 
 ### The filename template format
 
@@ -51,50 +53,56 @@ downloads/
     └── physics.comp-ph/
         └── Fermi, E. et al.-Studies of Nonlinear Problems. I..pdf
 ```
+
+
 ### Installation
 
-There are two primary ways to install the extension.
-- From the repository
+For Chromium-based browsers (e.g., Chrome, Edge, Brave)
 
-    1. Clone the repository using Git:
+**1. From the repository:**
 
-        `git clone https://github.com/bshk003/arxivarius`
+   1. Clone the repository
+      ```bash
+      git clone https://github.com/bshk003/arxivarius
+      ```
+      or download the zip file by clicking the "Code" button on the GitHub page and selecting "Download ZIP."
+   2. Open Chrome and navigate to `chrome://extensions/`.
+   3. In the top-right corner, enable *Developer mode*.
+   4. Click the *Load unpacked* button.
+   5. Select the main project folder: `arxivarius/chromium/src`.
 
-        Or download the zip file by clicking the "Code" button on the GitHub page and selecting "Download ZIP."
+**2. From a .crx file:**
 
-    2.  Open Chrome Extensions:
+   1. Download the packed `.crx` file from the `release/` directory in the repository.
+   2. Open Chrome and navigate to `chrome://extensions/`.
+   3. In the top-right corner, enable *Developer mode*.
+   4. Drag and drop the `.crx` file into the `chrome://extensions/` page.
+   5. Confirm the installation when prompted.
 
-        Open Chrome. Navigate to `chrome://extensions/`.
+After installation, the settings page can be accessed by clicking the puzzle piece icon in the Chrome toolbar and selecting *More options* for the arxivarius entry. Alternatively, go to `chrome://extensions/` -> `arxivarius` -> `Details` -> `Extension options`.
 
-    3.  Enable Developer Mode:
+#### Firefox
 
-        In the top-right corner, toggle on "Developer mode".
+At the moment, only temporary installation is available. A temporary installation is valid only for the current browser session. 
 
-    4.  Load the extension:
+**1. Temporary installation:**
 
-        Click the "Load unpacked" button that appears.
+   1. Navigate to `about:debugging#/runtime/this-firefox` in Firefox.
+   2. Click **Load Temporary Add-on...**
+   3. Select any file inside the `firefox/src/` directory.
 
-        Navigate to the directory where the repository was cloned or unzipped and select the main project folder, that being `arxivarius/chromium/src`.
-        
+A signed approval from Mozilla is pending.
 
-- From a *.crx* file
+### Requirements
 
-    A packed *.crx* file is available in the `release/` directory in the repo.
-
-    1. Upon downloading, open `chrome://extensions/`.
-
-    2. Enable Developer Mode:
-
-        In the top-right corner, toggle on "Developer mode".
-
-    3.  Drag and drop the *.crx* file into the `chrome://extensions/` page. A prompt will appear to confirm the installation.
-
-After installation, the settings page can be accessed by clicking the puzzle piece icon in the Chromium toolbar and selecting "*More options*" against the arxivarius entry. Alternatively, go to `chrome://extensions/` -> `arxivarius` -> `Details` -> `Extension options`.
+The extension uses Manifest V3. For the Chromium-based browsers this is supported by version 88 and newer. For Firefox, this is supported by version 109 and newer.
 
 ### Further development
 
-The current version relies on regular expressions to parse the paper's metadata from the arXiv abstract page, which is certainly not ideal. The approach was taken since the browser's DOMParser is not available within the background.js service worker, a limitation imposed by the Manifest V3 extension requirements.
+1. The current version relies on regular expressions to parse the paper's metadata from the arXiv abstract page, which is certainly not ideal. The approach was taken since the browser's DOMParser is not available within the background.js service worker, a limitation imposed by the Manifest V3 extension requirements.
 
-An alternative solution will likely involve using an offscreen document to handle the HTML parsing in a more reliable way. The necessary functionality is provided by Chromium's offscreen API:
+    An alternative solution will likely involve using an offscreen document to handle the HTML parsing in a more reliable way. The necessary functionality is provided by Chromium's offscreen API:
 
-https://developer.chrome.com/docs/extensions/reference/api/offscreen
+    https://developer.chrome.com/docs/extensions/reference/api/offscreen
+
+2. Due to limitations of the WebExtension API, the current Firefox version does not support automatic file renaming when a download is initiated from the browser's built-in pdf-viewer. Some workaround is needed.
