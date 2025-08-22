@@ -6,6 +6,8 @@ The extension automatically renames PDF files downloaded from arxiv.org accordin
 
 There is a version for Chromium-based browsers and one for Firefox. The Firefox version uses the WebExtension API and should work with other browsers that support it. 
 
+**Note:** There is a difference in functionality between the Chromium and the Firefox versions of the extension. Namely, the Firefox version *will not* display a new custom filename in the "Save as..." dialog box. 
+
 ### The filename template format
 
 The filename template is a string that may contain various tags representing paper's metadata.
@@ -53,7 +55,6 @@ downloads/
     └── physics.comp-ph/
         └── Fermi, E. et al.-Studies of Nonlinear Problems. I..pdf
 ```
-
 
 ### Installation
 
