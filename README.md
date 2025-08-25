@@ -84,15 +84,18 @@ After installation, the settings page can be accessed by clicking the puzzle pie
 
 #### Firefox
 
-At the moment, only temporary installation is available. A temporary installation is valid only for the current browser session. 
+**1. From the Mozilla add-on store**
 
-**1. Temporary installation:**
+   1. Navigate to `https://addons.mozilla.org/en-US/firefox/addon/arxivarius/`.
+   2. Click on *Add to Firefox*.
+
+**2. A temporary installation for testing purposes:**
 
    1. Navigate to `about:debugging#/runtime/this-firefox` in Firefox.
-   2. Click **Load Temporary Add-on...**
+   2. Click on *Load Temporary Add-on...*
    3. Select any file inside the `firefox/src/` directory.
 
-A signed approval from Mozilla is pending.
+   A temporary installation is valid for a single browser session.
 
 ### Requirements
 
