@@ -86,7 +86,7 @@ After installation, the settings page can be accessed by clicking the puzzle pie
 
 **1. From the Mozilla add-on store**
 
-   1. Navigate to `https://addons.mozilla.org/en-US/firefox/addon/arxivarius/`.
+   1. Navigate to https://addons.mozilla.org/en-US/firefox/addon/arxivarius/.
    2. Click on *Add to Firefox*.
 
 **2. A temporary installation for testing purposes:**
