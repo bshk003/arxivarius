@@ -9,7 +9,7 @@ browser.downloads.onCreated.addListener((downloadItem) => {
     return;
   }
 
-  const urlMatch = downloadItem.url.match(/arxiv\.org\/pdf\/(\d+\.\d+)(?:v\d+)?(?:\.pdf)?$/);
+  const urlMatch = downloadItem.url.match(/arxiv\.org\/pdf\/((?:\w+-\w+\/\d{7})|(?:\d{4}\.\d{4,5}))(?:v\d+)?(?:\.pdf)?$/);
 
   if (urlMatch) {
     const arxivId = urlMatch[1];
